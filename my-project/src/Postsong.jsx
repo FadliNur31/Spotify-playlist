@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const client_id = toString(import.meta.env.VITE_CLIENT_ID);
-const redirect_uri = "http://localhost:5173";
+const redirect_uri = "https://spotify-playlist-weld.vercel.app/";
 const scope = "user-read-private user-read-email playlist-modify-public playlist-modify-private";
 const client_secret = toString(import.meta.env.VITE_CLIENT_SECRET);
 
