@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const client_id = import.meta.env.VITE_CLIENT_ID;
-const redirect_uri = "https://spotify-playlist-weld.vercel.app/";
+const redirect_uri = "http://localhost:5173";
 const scope = "user-read-private user-read-email playlist-modify-public playlist-modify-private";
 const client_secret = import.meta.env.VITE_CLIENT_SECRET;
-const state = Math.random().toString(36).substring(2);
 
 const Postsong = ({ playlist }) => {
   const [NamaPlaylist, setNamaPlaylist] = useState("Playlist");
@@ -75,7 +74,7 @@ const Postsong = ({ playlist }) => {
               client_id: client_id,
               scope: scope,
               redirect_uri: redirect_uri,
-              state: state
+              state: Math.random().toString(36).substring(2),
             };
             window.location.href =
               "https://accounts.spotify.com/authorize?" + objectToQueryString(authParams);
