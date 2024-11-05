@@ -80,6 +80,18 @@ const Postsong = ({ playlist }) => {
               "https://accounts.spotify.com/authorize?" + objectToQueryString(authParams);
     }else{
       try {
+        const userParams = {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + accessToken,
+          },
+        };
+  
+        // Membuat playlist baru
+        const resU = await fetch("https://api.spotify.com/v1/me", userParams);
+        const dataU = await resU.json();
+        const id_user = dataU.id
+
         const playlistParams = {
           method: "POST",
           headers: {
@@ -89,16 +101,17 @@ const Postsong = ({ playlist }) => {
           body: JSON.stringify({
             name: NamaPlaylist,
             description: "New playlist description",
-            public: true,
+            public: false,
           }),
         };
   
         // Membuat playlist baru
-        const res = await fetch("https://api.spotify.com/v1/me/playlists", playlistParams);
+        const res = await fetch(`https://api.spotify.com/v1/users/${id_user}/playlists`, playlistParams);
         const data = await res.json();
         console.log("Created playlist:", data);
   
         const playlist_id = data.id;
+        console.log(playlist_id)
   
         // Menambahkan track ke playlist yang baru dibuat
         const trackParams = {
@@ -119,9 +132,7 @@ const Postsong = ({ playlist }) => {
       } catch (error) {
         console.error("Error saving playlist:", error);
       }
-      if(newPL){
-        window.location.reload();
-      }
+
     }
 
   }
