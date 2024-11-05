@@ -89,7 +89,7 @@ const Postsong = ({ playlist }) => {
           body: JSON.stringify({
             name: NamaPlaylist,
             description: "New playlist description",
-            public: false,
+            public: true,
           }),
         };
   
