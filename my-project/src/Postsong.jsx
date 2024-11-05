@@ -28,7 +28,7 @@ const Postsong = ({ playlist }) => {
     if (code && !accessToken) {
       fetchAccessToken(code);
     }
-  }, [location, accessToken]);
+  }, [location]);
 
   // Fungsi untuk menangani perubahan input nama playlist
   function handleChange(e) {
