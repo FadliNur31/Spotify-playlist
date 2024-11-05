@@ -75,7 +75,7 @@ const Postsong = ({ playlist }) => {
               client_id: client_id,
               scope: scope,
               redirect_uri: redirect_uri,
-              state: state,
+              state: state
             };
             window.location.href =
               "https://accounts.spotify.com/authorize?" + objectToQueryString(authParams);
