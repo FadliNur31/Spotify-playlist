@@ -74,7 +74,7 @@ const Postsong = ({ playlist }) => {
               client_id: client_id,
               scope: scope,
               redirect_uri: redirect_uri,
-              state: Math.random().toString(36).substring(2);,
+              state: Math.random().toString(36).substring(2),
             };
             window.location.href =
               "https://accounts.spotify.com/authorize?" + objectToQueryString(authParams);
