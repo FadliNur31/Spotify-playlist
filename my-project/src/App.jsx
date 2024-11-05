@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import Songlist from "./Songlist";
 
-var client_id = toString(import.meta.env.VITE_CLIENT_ID) ;
-var client_secret = toString(import.meta.env.VITE_CLIENT_SECRET);
+var client_id = import.meta.env.VITE_CLIENT_ID ;
+var client_secret = import.meta.env.VITE_CLIENT_SECRET;
 
 function App() {
   const [input, setInput] = useState("");
